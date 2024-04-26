@@ -101,6 +101,10 @@ public class UserService {
     }
 
     public List<User> getAllUsersByBirthDateBetweenTwoDates(LocalDate from, LocalDate to) {
+        if (from.isAfter(to))
+            throw new IllegalArgumentException("(from) must be before (to)");
+        if (from.isEqual(to))
+            throw new IllegalArgumentException("(from) can not be (to)");
         return userRepository.findAllByBirthDateBetween(from, to);
     }
 

@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class UserRestExceptionHandler {
-    // add exception handling code here
+
 
 
     @ExceptionHandler
     public ResponseEntity<UserErrorResponse> handleException(Exception exc) {
 
-        // create a StudentErrorResponse
+
         UserErrorResponse error = new UserErrorResponse();
 
         error.setStatus(HttpStatus.BAD_REQUEST.value());
         error.setMessage(exc.getMessage());
         error.setTimeStamp(System.currentTimeMillis());
 
-        // return ResponseEntity
+
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 }

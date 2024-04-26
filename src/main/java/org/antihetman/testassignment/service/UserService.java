@@ -58,7 +58,10 @@ public class UserService {
     }
 
     public User getUserById(String id) {
-        return userRepository.findById(id).orElse(null);
+        User user =  userRepository.findById(id).orElse(null);
+        if (user == null)
+            throw new RuntimeException("User not found");
+        return user;
     }
 
     public User createUser(User user) {
@@ -102,6 +105,9 @@ public class UserService {
     }
 
     public User updateUser(String id, User user) {
+        User existingUser = userRepository.findById(id).orElse(null);
+        if (existingUser == null)
+            throw new RuntimeException("User not found");
         if (user.getBirthDate() != null)
             checkUserBirthDate(user);
         if (user.getEmail() != null) {

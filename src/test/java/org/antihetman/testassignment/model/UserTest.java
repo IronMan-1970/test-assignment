@@ -1,16 +1,13 @@
-package org.antihetman.testassignment;
+package org.antihetman.testassignment.model;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
-import org.antihetman.testassignment.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.fields;
 
